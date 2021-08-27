@@ -31,9 +31,7 @@ const MealDetails = () => {
           <div>{<img src={meal.strMealThumb} alt="" width={"300"}/>}</div>
           <div>{meal.strInstructions}</div>
           Ingredients:
-          <ul>
-            <li>{ings}</li>
-          </ul>
+          {ings}
         </div>
       }
     </div>

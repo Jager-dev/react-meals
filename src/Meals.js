@@ -1,9 +1,11 @@
-import {useEffect,useState} from "react";
+import React, {useEffect,useState} from "react";
 import axios from "axios";
 import {NavLink} from "react-router-dom";
 
 const Meals = () => {
   const [meals, setMeals] = useState([])
+
+  const [search, setSearch] = useState("")
 
   useEffect(() => {
     axios("https://www.themealdb.com/api/json/v2/1/randomselection.php")
@@ -12,8 +14,14 @@ const Meals = () => {
       })
   },[])
 
+  const handleSearch = (e) => {
+    setSearch(e.target.value.toLowerCase())
+  }
+
   return (
     <div>
+      <input type="text" onChange={handleSearch}/>
+      <NavLink to={`/browse/s=${search}`}>Search</NavLink> <br/>
       All meals:
       {
         meals.map(item =>
