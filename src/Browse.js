@@ -11,15 +11,12 @@ const Browse = () => {
 
 
   useEffect(() => {
+    setMessage("")
     axios(`https://www.themealdb.com/api/json/v1/1/search.php?s=${params.name}`)
       .then(({data}) => {
-        if (!data.meals){
-          setMessage("Такого блюда нет!")
-        }else{
-          setFoods(data.meals)
-        }
+        !data.meals ? setMessage("Такого блюда нет!") : setFoods(data.meals)
       })
-  }, [])
+  }, [params.name])
 
   return (
     <div>

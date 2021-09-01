@@ -4,9 +4,6 @@ import {NavLink} from "react-router-dom";
 
 const Meals = () => {
   const [meals, setMeals] = useState([])
-
-  const [search, setSearch] = useState("")
-
   useEffect(() => {
     axios("https://www.themealdb.com/api/json/v2/1/randomselection.php")
       .then(({data}) => {
@@ -14,14 +11,8 @@ const Meals = () => {
       })
   },[])
 
-  const handleSearch = (e) => {
-    setSearch(e.target.value.toLowerCase())
-  }
-
   return (
     <div>
-      <input type="text" onChange={handleSearch} class="input-group-text" id="inputGroup-sizing-default"/>
-      <NavLink to={`/browse/${search}`}>Search</NavLink> <br/>
       All meals:
       <div className={'row'}>
         {

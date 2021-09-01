@@ -1,36 +1,35 @@
 import React ,{useState,useEffect} from 'react';
 import axios from "axios";
-import {NavLink, useParams} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 
 
 const Ingredients = () => {
-  const [mealsIng, setMealsIng] = useState([])
+  const [ing, setIng] = useState([])
   const params = useParams()
 
 
-  useEffect( () => {
+  useEffect(() => {
     axios(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${params.name}`)
-      .then(({data})=>setMealsIng(data.meals))
-  },[])
+      .then(({data}) => setIng(data.meals))
+  }, [params.name])
 
 
   return (
     <div className='row'>
       {
-        mealsIng.map(el => (
+        ing.map(el => (
             <div key={el.idMeal} className='col-3'>
-              <NavLink to={`/foodinfo/i=${el.idMeal}`}>
+              <Link to={`/mealdetails/i=${el.idMeal}`}>
                 <img src={el.strMealThumb} alt="" className='img'/>
                 <div>
                   {el.strMeal}
                 </div>
-              </NavLink>
+              </Link>
             </div>
           )
         )
       }
     </div>
   );
-};
-
+}
 export default Ingredients;
