@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.img{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+.browse-img{
+    height: 200px;
+    object-fit: cover;
+}
+.ings-img{
+    height: 100px;
+    object-fit: contain;
+}
+
+
+
+
+

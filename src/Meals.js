@@ -20,18 +20,23 @@ const Meals = () => {
 
   return (
     <div>
-      <input type="text" onChange={handleSearch}/>
-      <NavLink to={`/browse/s=${search}`}>Search</NavLink> <br/>
+      <input type="text" onChange={handleSearch} class="input-group-text" id="inputGroup-sizing-default"/>
+      <NavLink to={`/browse/${search}`}>Search</NavLink> <br/>
       All meals:
-      {
-        meals.map(item =>
-          <p key={item.id}>
-            <NavLink to={`/mealdetails/i=${item.idMeal}`}>
-              {item.strMeal}
-            </NavLink>
-          </p>
-        )
-      }
+      <div className={'row'}>
+        {
+          meals.map(item =>
+            <p key={item.id}  className={'col-3'}>
+              <NavLink to={`/mealdetails/i=${item.idMeal}`}>
+                  <div>
+                    <img src={item.strMealThumb} alt="" className='img'/>
+                    {item.strMeal}
+                  </div>
+              </NavLink>
+            </p>
+          )
+        }
+      </div>
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import {NavLink, useParams} from "react-router-dom"
+import { useParams} from "react-router-dom"
 import {useEffect,useState} from "react";
 import axios from "axios";
 
@@ -13,27 +13,32 @@ const MealDetails = () => {
       .then(({data}) => {
         const obj = data.meals[0]
         setMeal(obj)
-        const newIngs = Array(20).fill(0).reduce((acc, rec, idx) => {
+
+        const ings = Array(20).fill(0).reduce((acc, rec, idx) => {
           if (obj[`strIngredient${idx + 1}`]) {
             return [...acc, obj[`strIngredient${idx + 1}`]]
           }
           return acc
         }, [])
-        setIngs(newIngs)
+        setIngs(ings)
       })
   }, [])
 
   return (
-    <div>
-      {
-        <div>
-          Meals details:
-          <div>{<img src={meal.strMealThumb} alt="" width={"300"}/>}</div>
-          <div>{meal.strInstructions}</div>
-          Ingredients:
-          {ings}
-        </div>
-      }
+    <div className="row">
+      Meals details:
+      <div>{<img src={meal.strMealThumb} alt="" width={"300"}/>}</div>
+      <div>{meal.strInstructions}</div>
+      <div className="row">
+        {
+          ings.map(item =>
+            <div key={item} className={"col-3"}>
+              <img src={`https://www.themealdb.com/images/ingredients/${item}.png`} alt="" className={"ings-img"}/>
+              <p>{item}</p>
+            </div>
+          )
+        }
+      </div>
     </div>
   );
 }
