@@ -6,7 +6,7 @@ const Header = () => {
     <header className="header">
       <div className="header__container container">
         <div className="header__left-side">
-          <Link to="/" className="header__logo">GoodFood</Link>
+          <Link to="/" className="header__logo">ZHU Food</Link>
           <nav className="header__menu">
             <Link to="/" className="header__link">Home</Link>
             <Link to="/meals" className="header__link">Menu</Link>

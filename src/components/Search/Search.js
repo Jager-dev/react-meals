@@ -14,7 +14,7 @@ const Search = () => {
   }
   const handleClick = ()=> {
     history.push(`/browse/${inputValue}`)
-    setTimeout(()=> setInputValue(""), 1000)
+    setTimeout(() => setInputValue(""), 1000)
   }
   return (
     <div>
