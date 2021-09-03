@@ -17,9 +17,9 @@ const Search = () => {
     setTimeout(() => setInputValue(""), 1000)
   }
   return (
-    <div>
-      <input type="text" onKeyPress={enterPress} onChange={handleSearch} value={inputValue} className="input-group-text" id="inputGroup-sizing-default"/>
-      <button onClick={handleClick} disabled={!inputValue.trim()}>Search</button>
+    <div className='input__search'>
+      <input type="text" onKeyPress={enterPress} onChange={handleSearch} value={inputValue} className="input-group-text" id="inputGroup-sizing-default" placeholder={'Please, enter the name of the food'}/>
+      <button onClick={handleClick} disabled={!inputValue.trim()} className='btn__search'>Search</button>
     </div>
   );
 };

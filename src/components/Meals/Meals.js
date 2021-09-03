@@ -12,21 +12,22 @@ const Meals = () => {
   },[])
 
   return (
-    <div>
-      All meals:
-      <div className={'row'}>
-        {
-          meals.map(item =>
-            <p key={item.id}  className={'col-3'}>
-              <NavLink to={`/mealdetails/i=${item.idMeal}`}>
+    <div className={"meals__container container"}>
+      <div className={"meals__page"}>
+        <div className={'row'}>
+          {
+            meals.map(item =>
+              <p key={item.id}  className={'col-3'}>
+                <NavLink to={`/mealdetails/i=${item.idMeal}`}>
                   <div>
                     <img src={item.strMealThumb} alt="" className='img'/>
-                    {item.strMeal}
+                    <h6 className="foods__name">{item.strMeal}</h6>
                   </div>
-              </NavLink>
-            </p>
-          )
-        }
+                </NavLink>
+              </p>
+            )
+          }
+        </div>
       </div>
     </div>
   );

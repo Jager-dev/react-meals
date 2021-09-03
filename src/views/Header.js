@@ -1,5 +1,4 @@
 import {Link} from "react-router-dom";
-import Search from "./components/Search/Search";
 
 const Header = () => {
   return (
@@ -8,13 +7,12 @@ const Header = () => {
         <div className="header__left-side">
           <Link to="/" className="header__logo">ZHU Food</Link>
           <nav className="header__menu">
-            <Link to="/" className="header__link">Home</Link>
-            <Link to="/meals" className="header__link">Menu</Link>
+            <Link to="/home" className="header__link">Home</Link>
+            <Link to="/" className="header__link">Meals</Link>
             <Link to="/" className="header__link">Contact us</Link>
           </nav>
         </div>
         <div className="header__right-side">
-          <Search />
         </div>
       </div>
     </header>
